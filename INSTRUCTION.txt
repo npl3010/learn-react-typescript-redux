@@ -47,3 +47,31 @@ It turns off all ESLint rules that are unnecessary or might conflict with Pretti
     + Install:
         npm install --save-dev eslint-config-prettier
 )
+
+
+****************************************************************************************************
+5. Apply a middleware in redux-toolkit:
+- You must know:
+    + redux-saga is a redux middleware.
+
+- If you want to customize the list of middleware, 
+you can supply an array of middleware functions to configureStore.
+(https://redux-toolkit.js.org/api/getDefaultMiddleware#intended-usage)
+
+- Redux Saga:
+    + Install:
+        npm install redux-saga
+
+- Apply redux-saga middleware:
+Go to src/app/store.ts, customize configureStore to apply redux-saga and other middlewares.
+For example:
+    const sagaMiddleware = createSagaMiddleware();
+    export const store = configureStore({
+      reducer: {
+        counter: counterReducer,
+      },
+      middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(sagaMiddleware),
+    });
+
+- Create and run Sagas.
