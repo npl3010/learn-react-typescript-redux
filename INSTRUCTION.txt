@@ -1,0 +1,49 @@
+****************************************************************************************************
+1. Create a new React app with TypeScript and Redux Toolkit:
+
+- Go to redux document (https://redux.js.org/) to know how to use Redux with TypeScript.
+Now, you will see that there is a Redux+TS template for Create-React-App.
+
+- Standard Redux Toolkit Project Setup with TypeScript:
+    + To create a React app in the current folder:
+        npx create-react-app . --template redux-typescript
+    + To create a React app in a new folder:
+        npx create-react-app my-app --template redux-typescript
+
+
+****************************************************************************************************
+2. Notes:
+- Go to src/app/hooks.ts, you will see that we should use `useAppDispatch` and `useAppSelector`
+instead of `useDispatch` and `useSelector`.
+
+
+****************************************************************************************************
+3. Project setup:
+- Open tsconfig.json:
+    + In compilerOptions, add:
+        "baseUrl": "./src"
+
+
+****************************************************************************************************
+4. ESLint, Prettier, Husky:
+
+- ESLint setup:
+    + Because we used create-react-app script, we are already have eslint libraries, 
+    so we don't need to add them to our package.json file explicitly.
+    + Add configuration files for eslint:
+        .eslintrc
+        .eslintignore
+
+- Prettier setup:
+    + Add prettier to our create-react-app's dev dependencies:
+        npm install --save-dev --save-exact prettier
+    + Add configuration files for prettier:
+        .prettierrc
+        .prettierignore
+
+(- And because we will be using Prettier with ESLint, 
+we also need to install eslint-config-prettier to make ESLint and Prettier play nice with each other.
+It turns off all ESLint rules that are unnecessary or might conflict with Prettier.
+    + Install:
+        npm install --save-dev eslint-config-prettier
+)
