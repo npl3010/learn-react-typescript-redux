@@ -10,7 +10,7 @@ function* myRootSaga() {
     yield all([
         helloSaga(),
         counterSaga()
-    ])
+    ]);
 }
 
 export default myRootSaga;
