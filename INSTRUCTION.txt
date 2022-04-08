@@ -25,28 +25,21 @@ instead of `useDispatch` and `useSelector`.
 
 
 ****************************************************************************************************
-4. ESLint, Prettier, Husky:
+4. ESLint, Prettier, Husky (uncompleted):
 
-- ESLint setup:
+- eslint:
     + Because we used create-react-app script, we are already have eslint libraries, 
     so we don't need to add them to our package.json file explicitly.
     + Add configuration files for eslint:
         .eslintrc
         .eslintignore
 
-- Prettier setup:
-    + Add prettier to our create-react-app's dev dependencies:
+- prettier:
+    + Install:
         npm install --save-dev --save-exact prettier
     + Add configuration files for prettier:
         .prettierrc
         .prettierignore
-
-(- And because we will be using Prettier with ESLint, 
-we also need to install eslint-config-prettier to make ESLint and Prettier play nice with each other.
-It turns off all ESLint rules that are unnecessary or might conflict with Prettier.
-    + Install:
-        npm install --save-dev eslint-config-prettier
-)
 
 
 ****************************************************************************************************
