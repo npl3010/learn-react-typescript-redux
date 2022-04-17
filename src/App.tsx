@@ -9,10 +9,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
-        <p>
+        <p className='App-paragraph'>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <span>
+        <span className='App-paragraph'>
           <span>Learn </span>
           <a
             className="App-link"

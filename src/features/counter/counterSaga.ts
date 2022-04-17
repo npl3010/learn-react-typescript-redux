@@ -1,6 +1,7 @@
-import { delay, put, takeLeading } from "redux-saga/effects";
+import { call, delay, put, takeLeading } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { sagaIncrementAsyncFulfilled, sagaIncrementAsyncPending } from "./counterSlice";
+import { sagaIncrementAsyncFulfilled, sagaIncrementAsyncPending, sagaIncrementAsyncV2Fulfilled, sagaIncrementAsyncV2Pending } from "./counterSlice";
+import { fetchCount } from "./counterAPI";
 // import { increment } from "./counterSlice";
 
 // function* log(action: PayloadAction) {
@@ -41,6 +42,24 @@ function* sagaIncrementAsync(action: PayloadAction<number>) {
     })
 }
 
+function* sagaIncrementAsyncV2(action: PayloadAction<number>): any {
+    /**
+     * Solution 1: yield without call.
+     */
+    // const { data } = yield fetchCount(action.payload);
+    // yield put(sagaIncrementAsyncV2Fulfilled(data));
+
+    /**
+     * Solution 2: yield with call.
+     */
+    const { data } = yield call(fetchCount, action.payload);
+    yield put({
+        type: sagaIncrementAsyncV2Fulfilled.toString(),
+        payload: data
+    });
+}
+
 export default function* counterSaga() {
     yield takeLeading(sagaIncrementAsyncPending.toString(), sagaIncrementAsync);
+    yield takeLeading(sagaIncrementAsyncV2Pending.toString(), sagaIncrementAsyncV2);
 }

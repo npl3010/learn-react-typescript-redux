@@ -26,6 +26,10 @@
   color: rgb(112, 76, 182);
 }
 
+.App-paragraph {
+  font-size: 14px;
+}
+
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

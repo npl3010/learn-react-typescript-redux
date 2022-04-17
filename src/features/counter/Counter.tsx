@@ -9,6 +9,7 @@ import {
   incrementIfOdd,
   selectCount,
   sagaIncrementAsyncPending,
+  sagaIncrementAsyncV2Pending,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -20,7 +21,7 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
-    <div>
+    <div className={styles.counterPanel}>
       <div className={styles.row}>
         <button
           className={styles.button}
@@ -58,16 +59,24 @@ export function Counter() {
           Add Async
         </button>
         <button
-          className={styles.asyncButton}
-          onClick={() => dispatch(sagaIncrementAsyncPending(incrementValue))}
-        >
-          Add Async (using Saga)
-        </button>
-        <button
           className={styles.button}
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
+        </button>
+      </div>
+      <div className={styles.row}>
+        <button
+          className={styles.asyncButton}
+          onClick={() => dispatch(sagaIncrementAsyncPending(incrementValue))}
+        >
+          Add Async v1 (using Saga)
+        </button>
+        <button
+          className={styles.asyncButton}
+          onClick={() => dispatch(sagaIncrementAsyncV2Pending(incrementValue))}
+        >
+          Add Async v2 (using Saga)
         </button>
       </div>
     </div>
